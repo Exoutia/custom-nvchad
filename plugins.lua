@@ -321,6 +321,12 @@ local plugins = {
     },
   },
 
+  -- terminal color matching the same as theme.
+  -- {
+  --   "typicode/bg.nvim",
+  --   lazy = false,
+  -- },
+
   {
     "echasnovski/mini.move",
     version = false,
