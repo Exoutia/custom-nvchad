@@ -32,7 +32,6 @@ lspconfig.pylsp.setup {
     pylsp = {
       configurationSources = { "flake8" },
       plugins = {
-        pycodestyle = { enabled = false },
         flake8 = { enabled = true },
         pyflakes = { enabled = false },
         pylint = { enabled = false },
@@ -41,6 +40,10 @@ lspconfig.pylsp.setup {
         pyls_black = { enabled = true },
         pyls_isort = { enabled = true },
         jedi_completion = { fuzzy = true },
+        pycodestyle = {
+          ignore = { "W391" },
+          maxLineLength = 100,
+        },
       },
     },
   },
