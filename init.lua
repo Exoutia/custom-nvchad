@@ -14,10 +14,17 @@ if vim.g.neovide then
   vim.g.neovide_padding_left = 0
   vim.g.neovide_hide_mouse_when_typing = true
   vim.o.mouse = "nv"
-  vim.g.neovide_transparency = 1
+  vim.g.neovide_transparency = 0.8
 end
 vim.cmd [[imap <silent><script><expr> <C-a> copilot#Accept('\<CR>')]]
 vim.g.copilot_no_tab_map = true
 vim.opt.foldtext = "v:lua.vim.treesitter.foldtext()"
 vim.g.dashboard_default_executive = "telescope"
 vim.o.mouse = "nv"
+-- vim.cmd [[
+-- augroup kitty_mp
+--     autocmd!
+--     au VimLeave * :silent !kitty @ set-spacing padding=15
+--     au VimEnter * :silent !kitty @ set-spacing padding=0 margin=0
+-- augroup END
+-- ]]
