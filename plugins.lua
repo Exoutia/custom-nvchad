@@ -190,7 +190,28 @@ local plugins = {
       }
     end,
   },
-
+  {
+    "rcarriga/nvim-notify",
+    event = "VeryLazy",
+    config = function()
+      require("notify").setup {
+        -- Animation style (see below for details)
+        stages = "slide",
+        -- Default timeout for notifications
+        timeout = 5000,
+        -- For stages that change opacity this is treated as the highlight behind the window
+        background_colour = "#000000",
+        -- Icons for the different levels
+        icons = {
+          ERROR = "",
+          WARN = "",
+          INFO = "",
+          DEBUG = "",
+          TRACE = "✎",
+        },
+      }
+    end,
+  },
   -- noice.nvim
   {
     "folke/noice.nvim",
@@ -338,23 +359,16 @@ local plugins = {
     end,
   },
 
-  -- leetbuddy for solving leetcode problems in nvim
   {
-    "Dhanus3133/LeetBuddy.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-telescope/telescope.nvim",
-    },
-    config = function()
-      require("leetbuddy").setup {}
-    end,
-    keys = {
-      { "<leader>lq", "<cmd>LBQuestions<cr>", desc = "List Questions" },
-      { "<leader>ll", "<cmd>LBQuestion<cr>", desc = "View Question" },
-      { "<leader>lr", "<cmd>LBReset<cr>", desc = "Reset Code" },
-      { "<leader>lt", "<cmd>LBTest<cr>", desc = "Run Code" },
-      { "<leader>lsu", "<cmd>LBSubmit<cr>", desc = "Submit Code" },
-    },
+    "m4xshen/hardtime.nvim",
+    dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
+    opts = {},
+    config = function ()
+      require("hardtime").setup {
+        -- add any configuration options here
+      }
+      
+    end
   },
 }
 

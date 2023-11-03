@@ -10,7 +10,7 @@ M.general = {
     ["<leader>gn"] = { "<cmd> Neogit<CR>", "neogit open" },
     ["<leader>fp"] = { "<cmd> ProjectMgr<CR>", "Open Project Manager" },
     ["<C-i>"] = { "<cmd>lua require('notify').dismiss()<CR>", "dismiss notification" },
-    ["<leader>tb"] = { "<cmd>lua require('base46').toggle_transparency()<CR>", "dismiss notification" },
+    ["<leader>tb"] = { "<cmd>lua require('base46').toggle_transparency()<CR>", "togggle transparency" },
   },
 }
 
