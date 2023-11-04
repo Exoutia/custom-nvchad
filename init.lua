@@ -6,7 +6,7 @@
 --   command = "tabdo wincmd =",
 -- })
 if vim.g.neovide then
-  vim.o.guifont = "CaskaydiaCove Nerd Font:h11"
+  vim.o.guifont ="CaskaydiaCove Nerd Font:h11"
   vim.g.neovide_scale_factor = 1.0
   vim.g.neovide_padding_top = 10
   vim.g.neovide_padding_bottom = 0
@@ -27,4 +27,10 @@ vim.o.mouse = "nv"
 --     au VimLeave * :silent !kitty @ set-spacing padding=15
 --     au VimEnter * :silent !kitty @ set-spacing padding=0 margin=0
 -- augroup END
--- ]]
+-- ]]😆
+
+for i = 1, 9, 1 do
+  vim.keymap.set("n", string.format("<A-%s>", i), function()
+    vim.api.nvim_set_current_buf(vim.t.bufs[i])
+  end)
+end
