@@ -6,7 +6,7 @@
 --   command = "tabdo wincmd =",
 -- })
 if vim.g.neovide then
-  vim.o.guifont ="CaskaydiaCove Nerd Font:h11"
+  vim.o.guifont = "CaskaydiaCove Nerd Font:h11"
   vim.g.neovide_scale_factor = 1.0
   vim.g.neovide_padding_top = 10
   vim.g.neovide_padding_bottom = 0
@@ -28,7 +28,25 @@ vim.o.mouse = "nv"
 --     au VimEnter * :silent !kitty @ set-spacing padding=0 margin=0
 -- augroup END
 -- ]]😆
-
+-- Lua
+vim.keymap.set("n", "<leader>xx", function()
+  require("trouble").toggle()
+end)
+vim.keymap.set("n", "<leader>xw", function()
+  require("trouble").toggle "workspace_diagnostics"
+end)
+vim.keymap.set("n", "<leader>xd", function()
+  require("trouble").toggle "document_diagnostics"
+end)
+vim.keymap.set("n", "<leader>xq", function()
+  require("trouble").toggle "quickfix"
+end)
+vim.keymap.set("n", "<leader>xl", function()
+  require("trouble").toggle "loclist"
+end)
+vim.keymap.set("n", "gR", function()
+  require("trouble").toggle "lsp_references"
+end)
 for i = 1, 9, 1 do
   vim.keymap.set("n", string.format("<A-%s>", i), function()
     vim.api.nvim_set_current_buf(vim.t.bufs[i])

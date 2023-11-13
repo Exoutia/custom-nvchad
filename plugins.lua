@@ -348,6 +348,7 @@ local plugins = {
   --   lazy = false,
   -- },
 
+  -- for moving line up and down
   {
     "echasnovski/mini.move",
     version = false,
@@ -358,6 +359,8 @@ local plugins = {
       }
     end,
   },
+
+  -- for aligning text
   {
     "echasnovski/mini.align",
     version = false,
@@ -365,6 +368,18 @@ local plugins = {
     config = function()
       require("mini.align").setup {}
     end,
+  },
+
+  -- for debugging
+  {
+    "folke/trouble.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    opts = {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+    },
+    event = "VeryLazy",
   },
 }
 
