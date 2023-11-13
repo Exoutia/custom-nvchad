@@ -23,6 +23,7 @@ local sources = {
   -- python
   b.formatting.isort,
   b.formatting.black,
+  -- b.diagnostics.mypy,
 
   -- rust
   b.formatting.rustfmt,

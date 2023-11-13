@@ -30,15 +30,15 @@ lspconfig.pylsp.setup {
   capabilities = capabilities,
   settings = {
     pylsp = {
-      configurationSources = { "flake8" },
       plugins = {
-        flake8 = { enabled = true },
+        conifgurationSources = { "pycodestyle", "mypy" },
+        pylsp_mypy = { enabled = true },
+        flake8 = { enabled = false },
         pyflakes = { enabled = false },
         pylint = { enabled = false },
         yapf = { enabled = false },
         pyls_isort = { enabled = true },
         jedi_completion = { fuzzy = true },
-        pyls_mypy = { enabled = true },
         pycodestyle = {
           ignore = { "W391" },
           maxLineLength = 100,
