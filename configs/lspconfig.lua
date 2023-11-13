@@ -36,10 +36,9 @@ lspconfig.pylsp.setup {
         pyflakes = { enabled = false },
         pylint = { enabled = false },
         yapf = { enabled = false },
-        isort = { enabled = true },
-        pyls_black = { enabled = true },
         pyls_isort = { enabled = true },
         jedi_completion = { fuzzy = true },
+        pyls_mypy = { enabled = true },
         pycodestyle = {
           ignore = { "W391" },
           maxLineLength = 100,

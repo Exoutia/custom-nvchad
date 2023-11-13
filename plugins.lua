@@ -358,6 +358,14 @@ local plugins = {
       }
     end,
   },
+  {
+    "echasnovski/mini.align",
+    version = false,
+    event = "BufWinEnter",
+    config = function()
+      require("mini.align").setup {}
+    end,
+  },
 }
 
 return plugins

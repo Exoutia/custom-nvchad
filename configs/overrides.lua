@@ -14,7 +14,7 @@ M.treesitter = {
     "markdown_inline",
     "python",
     "rust",
-    "java"
+    "java",
   },
   indent = {
     enable = true,
@@ -27,8 +27,6 @@ M.treesitter = {
 M.telescope = {
   extenxions_list = { "workspaces", "fzf", "dap", "gh", "git_worktree" },
 }
-
-
 
 M.mason = {
   ensure_installed = {
@@ -49,6 +47,10 @@ M.mason = {
     -- c/cpp stuff
     "clangd",
     "clang-format",
+
+    -- markdown stuff
+    "marksman",
+    "ltex-ls",
 
     -- python stuff
     "python-lsp-server",
@@ -79,8 +81,8 @@ M.nvimtree = {
   },
 
   view = {
-    side="right",
-  }
+    side = "right",
+  },
 }
 
 return M
