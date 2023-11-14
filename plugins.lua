@@ -155,11 +155,11 @@ local plugins = {
     dependencies = { { "nvim-tree/nvim-web-devicons" } },
   },
   -- copilot is a plugin to use github copilot
-  {
-    "github/copilot.vim",
-    event = "BufWinEnter",
-    cmd = "Copilot",
-  },
+  -- {
+  --   "github/copilot.vim",
+  --   event = "BufWinEnter",
+  --   cmd = "Copilot",
+  -- },
 
   -- treesitter-just is a plugin to add justfile support to treesitter
   { "IndianBoy42/tree-sitter-just", event = "BufWinEnter", ft = "just" },
@@ -380,6 +380,28 @@ local plugins = {
       -- refer to the configuration section below
     },
     event = "VeryLazy",
+  },
+  {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+    config = function()
+      require("copilot").setup {
+        suggestion = {
+          enabled = true,
+          auto_trigger = true,
+          debounce = 75,
+          keymap = {
+            accept = "<C-a>",
+            accept_word = false,
+            accept_line = false,
+            next = "<M-]>",
+            prev = "<M-[>",
+            dismiss = "<C-]>",
+          },
+        },
+      }
+    end,
   },
 }
 
