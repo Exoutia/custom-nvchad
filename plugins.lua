@@ -190,6 +190,8 @@ local plugins = {
       }
     end,
   },
+
+  -- nvim-notify
   {
     "rcarriga/nvim-notify",
     event = "VeryLazy",
@@ -212,6 +214,7 @@ local plugins = {
       }
     end,
   },
+
   -- noice.nvim
   {
     "folke/noice.nvim",
@@ -342,6 +345,19 @@ local plugins = {
     },
   },
 
+  -- nvcommunity
+  {
+    "NvChad/nvcommunity",
+    { import = "nvcommunity.editor.rainbowdelimiters" },
+    { import = "nvcommunity.editor.illuminate" },
+    { import = "nvcommunity.folds.ufo" },
+    { import = "nvcommunity.editor.biscuits" },
+    { import = "nvcommunity.editor.symbols-outline" },
+    -- { import = "nvcommunity.editor.telescope-undo" },
+    { import = "nvcommunity.lsp.prettyhover" },
+    { import = "nvcommunity.lsp.lsplines" },
+  },
+
   -- terminal color matching the same as theme.
   -- {
   --   "typicode/bg.nvim",
@@ -381,6 +397,7 @@ local plugins = {
     },
     event = "VeryLazy",
   },
+
   {
     "zbirenbaum/copilot.lua",
     cmd = "Copilot",
@@ -402,6 +419,11 @@ local plugins = {
         },
       }
     end,
+  },
+
+  -- for undoing telescope selections
+  {
+    "debugloop/telescope-undo.nvim",
   },
 }
 

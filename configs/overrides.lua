@@ -25,7 +25,13 @@ M.treesitter = {
 }
 
 M.telescope = {
-  extenxions_list = { "workspaces", "fzf", "dap", "gh", "git_worktree" },
+
+  dependencies = {
+    "nvim-treesitter/nvim-treesitter",
+    { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+    "debugloop/telescope-undo.nvim",
+  },
+  extenxions_list = { "workspaces", "fzf", "dap", "gh", "git_worktree", "undo" },
 }
 
 M.mason = {
