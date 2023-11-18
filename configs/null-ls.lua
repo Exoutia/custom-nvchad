@@ -29,7 +29,7 @@ local sources = {
   b.formatting.rustfmt,
 
   -- vale
-  b.diagnostics.vale,
+  -- b.diagnostics.vale,
 }
 
 null_ls.setup {
