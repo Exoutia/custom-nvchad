@@ -425,6 +425,33 @@ local plugins = {
   {
     "debugloop/telescope-undo.nvim",
   },
+
+  -- obsidian.md
+  {
+    "epwalsh/obsidian.nvim",
+    version = "*", -- recommended, use latest release instead of latest commit
+    lazy = true,
+    event = {
+      -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand'.
+      -- E.g. "BufReadPre " .. vim.fn.expand "~" .. "/my-vault/**.md"
+      "BufReadPre /home/bibek/myNotes/**.md",
+      "BufNewFile /home/bibek/myNotes/**.md",
+    },
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    config = function()
+      require("obsidian").setup {}
+    end,
+    opts = {
+      workspaces = {
+        {
+          name = "personal",
+          path = "~/myNotes",
+        },
+      },
+    },
+  },
 }
 
 return plugins
