@@ -14,7 +14,7 @@ if vim.g.neovide then
   vim.g.neovide_padding_left = 0
   vim.g.neovide_hide_mouse_when_typing = true
   vim.o.mouse = "nv"
-  vim.g.neovide_transparency = 0.8
+  vim.g.neovide_transparency = 0.9
 end
 vim.cmd [[imap <silent><script><expr> <C-a> copilot#Accept('\<CR>')]]
 vim.g.copilot_no_tab_map = true
@@ -29,24 +29,24 @@ vim.o.mouse = "nv"
 -- augroup END
 -- ]]😆
 -- Lua
-vim.keymap.set("n", "<leader>xx", function()
-  require("trouble").toggle()
-end)
-vim.keymap.set("n", "<leader>xw", function()
-  require("trouble").toggle "workspace_diagnostics"
-end)
-vim.keymap.set("n", "<leader>xd", function()
-  require("trouble").toggle "document_diagnostics"
-end)
-vim.keymap.set("n", "<leader>xq", function()
-  require("trouble").toggle "quickfix"
-end)
-vim.keymap.set("n", "<leader>xl", function()
-  require("trouble").toggle "loclist"
-end)
-vim.keymap.set("n", "gR", function()
-  require("trouble").toggle "lsp_references"
-end)
+-- vim.keymap.set("n", "<leader>xx", function()
+--   require("trouble").toggle()
+-- end)
+-- vim.keymap.set("n", "<leader>xw", function()
+--   require("trouble").toggle "workspace_diagnostics"
+-- end)
+-- vim.keymap.set("n", "<leader>xd", function()
+--   require("trouble").toggle "document_diagnostics"
+-- end)
+-- vim.keymap.set("n", "<leader>xq", function()
+--   require("trouble").toggle "quickfix"
+-- end)
+-- vim.keymap.set("n", "<leader>xl", function()
+--   require("trouble").toggle "loclist"
+-- end)
+-- vim.keymap.set("n", "gR", function()
+--   require("trouble").toggle "lsp_references"
+-- end)
 for i = 1, 9, 1 do
   vim.keymap.set("n", string.format("<A-%s>", i), function()
     vim.api.nvim_set_current_buf(vim.t.bufs[i])

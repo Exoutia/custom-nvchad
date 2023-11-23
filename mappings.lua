@@ -12,14 +12,16 @@ M.general = {
     ["<C-i>"] = { "<cmd>lua require('notify').dismiss()<CR>", "dismiss notification" },
     ["<leader>tb"] = { "<cmd>lua require('base46').toggle_transparency()<CR>", "togggle transparency" },
     ["<leader>fu"] = { "<CMD>Telescope undo<CR>", "Find undo" },
-    -- Lua
 
-    -- vim.keymap.set("n", "<leader>xx", function() require("trouble").toggle() end)
-    -- vim.keymap.set("n", "<leader>xw", function() require("trouble").toggle("workspace_diagnostics") end)
-    -- vim.keymap.set("n", "<leader>xd", function() require("trouble").toggle("document_diagnostics") end)
-    -- vim.keymap.set("n", "<leader>xq", function() require("trouble").toggle("quickfix") end)
-    -- vim.keymap.set("n", "<leader>xl", function() require("trouble").toggle("loclist") end)
-    -- vim.keymap.set("n", "gR", function() require("trouble").toggle("lsp_references") end)
+    ["<leader>xx"] = { "<cmd>lua require('trouble').toggle()<CR>", "toggle trouble" },
+    ["<leader>xw"] = {
+      "<cmd>lua require('trouble').toggle('workspace_diagnostics')<CR>",
+      "toggle workspace diagnostics",
+    },
+    ["<leader>xd"] = { "<cmd>lua require('trouble').toggle('document_diagnostics')<CR>", "toggle document diagnostics" },
+    ["<leader>xq"] = { "<cmd>lua require('trouble').toggle('quickfix')<CR>", "toggle quickfix" },
+    ["<leader>xl"] = { "<cmd>lua require('trouble').toggle('loclist')<CR>", "toggle location list" },
+    ["gR"] = { "<cmd>lua require('trouble').toggle('lsp_references')<CR>", "toggle LSP references" },
   },
 }
 
