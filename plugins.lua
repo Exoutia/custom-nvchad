@@ -452,6 +452,11 @@ local plugins = {
       },
     },
   },
+
+  -- arduino coding with nvim
+  -- {
+  --   "stevearc/vim-arduino",
+  -- },
 }
 
 return plugins

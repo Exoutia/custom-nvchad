@@ -5,8 +5,8 @@ local M = {}
 local highlights = require "custom.highlights"
 
 M.ui = {
-  theme = "chadracula",
-  theme_toggle = { "chadracula", "chadracula" },
+  theme = "catppuccin",
+  theme_toggle = { "catppuccin", "catppuccin" },
 
   hl_override = highlights.override,
   hl_add = highlights.add,
@@ -26,7 +26,7 @@ M.ui = {
   telescope = { style = "borderless" }, -- borderless / bordered
 
 
-  transparency = true,
+  transparency = false,
   ------------------------------- nvchad_ui modules -----------------------------
   statusline = {
     theme = "default", -- default/vscode/vscode_colored/minimal

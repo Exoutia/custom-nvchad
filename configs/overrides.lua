@@ -61,7 +61,7 @@ M.mason = {
     -- python stuff
     "python-lsp-server",
     "black",
-    "mypy",
+    -- "mypy",
 
     -- rust stuff
     "rust-analyzer",
