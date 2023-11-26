@@ -23,10 +23,14 @@ local sources = {
   -- python
   b.formatting.isort,
   b.formatting.black,
-  -- b.diagnostics.mypy,
 
   -- rust
   b.formatting.rustfmt,
+
+  -- go
+  b.formatting.gofumpt,
+  b.formatting.goimports_reviser,
+  b.formatting.golines,
 
   -- vale
   -- b.diagnostics.vale,

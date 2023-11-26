@@ -15,6 +15,15 @@ M.treesitter = {
     "python",
     "rust",
     "java",
+    "go",
+    "json",
+    "yaml",
+    "toml",
+    "bash",
+    "dockerfile",
+    "regex",
+    "query",
+    "comment",
   },
   indent = {
     enable = true,
@@ -61,13 +70,16 @@ M.mason = {
     -- python stuff
     "python-lsp-server",
     "black",
+    "isort",
+    "debugpy",
+
     -- "mypy",
 
     -- rust stuff
     "rust-analyzer",
 
     -- java stuff
-    "jdtls",
+    -- "jdtls",
   },
 }
 

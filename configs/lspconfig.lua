@@ -2,6 +2,7 @@ local on_attach = require("plugins.configs.lspconfig").on_attach
 local capabilities = require("plugins.configs.lspconfig").capabilities
 
 local lspconfig = require "lspconfig"
+local util = require "lspconfig/util"
 
 -- if you just want default config for the servers then put them in a table
 local servers = {
@@ -10,12 +11,12 @@ local servers = {
   "clangd",
   "pylsp",
   "rust_analyzer",
-  "jdtls",
   "tailwindcss",
   "emmet_ls",
   "eslint",
   "tsserver",
   "marksman",
+  "gopls",
 }
 
 for _, lsp in ipairs(servers) do
@@ -25,24 +26,39 @@ for _, lsp in ipairs(servers) do
   }
 end
 
+lspconfig.gopls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  cmd = { "gopls" },
+  filetypes = { "go", "gomod", "gowork", "gotmpl" },
+  root_dir = util.root_pattern("go.mod", ".git", "go.mod"),
+  settings = {
+    gopls = {
+      analyses = {
+        unusedparams = true,
+      },
+      completeUnimported = true,
+      usePlaceholders = true,
+      staticcheck = true,
+    },
+  },
+}
+
 lspconfig.pylsp.setup {
   on_attach = on_attach,
   capabilities = capabilities,
   settings = {
     pylsp = {
       plugins = {
-        conifgurationSources = { "pycodestyle", "mypy" },
+        conifgurationSources = { "flake8" },
         pylsp_mypy = { enabled = true },
-        flake8 = { enabled = false },
+        flake8 = { enabled = true, maxLineLength = 120 },
         pyflakes = { enabled = false },
         pylint = { enabled = false },
         yapf = { enabled = false },
         pyls_isort = { enabled = true },
         jedi_completion = { fuzzy = true },
-        pycodestyle = {
-          ignore = { "W391" },
-          maxLineLength = 100,
-        },
+        rope_autoimport = { enabled = true },
       },
     },
   },
