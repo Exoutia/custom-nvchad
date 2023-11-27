@@ -66,7 +66,7 @@ lspconfig.pylsp.setup {
         yapf = { enabled = false },
         pyls_isort = { enabled = true },
         jedi_completion = { fuzzy = true },
-        rope_autoimport = { enabled = true },
+        rope_autoimport = { enabled = false },
       },
     },
   },
