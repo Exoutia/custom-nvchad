@@ -24,6 +24,8 @@ M.treesitter = {
     "regex",
     "query",
     "comment",
+    "cpp",
+    "elixir",
   },
   indent = {
     enable = true,

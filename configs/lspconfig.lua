@@ -17,6 +17,7 @@ local servers = {
   "tsserver",
   "marksman",
   "gopls",
+  "elixirls",
 }
 
 for _, lsp in ipairs(servers) do
@@ -25,6 +26,13 @@ for _, lsp in ipairs(servers) do
     capabilities = capabilities,
   }
 end
+
+lspconfig.elixirls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  cmd = { "elixir-ls" },
+  filetypes = { "elixir", "eelixir" },
+}
 
 lspconfig.gopls.setup {
   on_attach = on_attach,

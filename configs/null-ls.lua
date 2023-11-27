@@ -32,6 +32,9 @@ local sources = {
   b.formatting.goimports_reviser,
   b.formatting.golines,
 
+  -- elixir
+  
+
   -- vale
   -- b.diagnostics.vale,
 }
