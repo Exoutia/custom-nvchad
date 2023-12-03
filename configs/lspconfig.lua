@@ -27,6 +27,22 @@ for _, lsp in ipairs(servers) do
   }
 end
 
+lspconfig.html.setup {
+  capabilities = capabilities,
+  cmd = { "vscode-html-language-server", "--stdio" },
+  filetypes = { "html" },
+  init_options = {
+    configurationSection = { "html", "css", "javascript" },
+    embeddedLanguages = {
+      css = true,
+      javascript = true,
+    },
+    provideFormatter = true,
+  },
+  settings = {},
+  single_file_support = true,
+}
+
 lspconfig.elixirls.setup {
   on_attach = on_attach,
   capabilities = capabilities,

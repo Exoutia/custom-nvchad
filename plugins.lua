@@ -1,13 +1,8 @@
 local overrides = require "custom.configs.overrides"
 
----@type NvPluginSpec[]
 local plugins = {
 
-  -- Override plugin definition options
-  {
-    "christoomey/vim-tmux-navigator",
-    lazy = false,
-  },
+  -- lsp config
   {
     "neovim/nvim-lspconfig",
     dependencies = {
@@ -55,54 +50,48 @@ local plugins = {
     end,
   },
 
-  -- To make a plugin not be loaded
-  -- {
-  --   "NvChad/nvim-colorizer.lua",
-  --   enabled = false
-  -- },
-
-  -- Workspaces
+  -- nvcommunity
   {
-    "natecraddock/workspaces.nvim",
-    cmd = { "WorkspacesList", "WorkspacesAdd", "WorkspacesOpen", "WorkspacesRemove" },
-    config = function()
-      require("workspaces").setup {
-        hooks = {
-          open = "Telescope find_files",
+    "NvChad/nvcommunity",
+    { import = "nvcommunity.editor.rainbowdelimiters" },
+    { import = "nvcommunity.editor.illuminate" },
+    { import = "nvcommunity.folds.ufo" },
+    { import = "nvcommunity.editor.biscuits" },
+    { import = "nvcommunity.editor.symbols-outline" },
+    { import = "nvcommunity.lsp.prettyhover" },
+    { import = "nvcommunity.lsp.lsplines" },
+    { import = "nvcommunity.completion.copilot" },
+    {
+      "copilot.lua",
+      opts = {
+        suggestion = {
+          keymap = {
+            accept = "<C-a>",
+            next = "<M-]>",
+            prev = "<M-[>",
+            dismiss = "<C-]>",
+          },
         },
-      }
-    end,
-  },
-
-  -- todo-comments
-  {
-    "folke/todo-comments.nvim",
-    dependencies = { "nvim-lua/plenary.nvim" },
-    lazy = false,
-    config = function()
-      require("todo-comments").setup {}
-    end,
-  },
-
-  -- neogit
-  {
-    "neogitorg/neogit",
-    cmd = "Neogit",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-telescope/telescope.nvim",
-      "sindrets/diffview.nvim",
+      },
     },
+    { import = "nvcommunity.git.neogit" },
+    { import = "nvcommunity.editor.hlargs" },
+    { import = "nvcommunity.diagnostics.trouble" },
+    { import = "nvcommunity.lsp.dim" },
+  },
+
+  -- project manager
+  {
+    "charludo/projectmgr.nvim",
+    lazy = false, -- important!
     config = function()
-      require("neogit").setup {
-        kind = "split", -- opens neogit in a split
-        signs = {
-          -- { CLOSED, OPENED }
-          section = { "", "" },
-          item = { "", "" },
-          hunk = { "", "" },
+      require("projectmgr").setup {
+        autogit = {
+          enabled = true,
+          command = "git pull --ff-only > .git/fastforward.log 2>&1",
         },
-        integrations = { diffview = true }, -- adds integration with diffview.nvim
+        session = { enabled = true, file = "Session.vim" },
+        shada = { enabled = false, file = "main.shada" },
       }
     end,
   },
@@ -116,15 +105,6 @@ local plugins = {
       require("nvim-surround").setup {
         -- Configuration here, or leave empty to use defaults
       }
-    end,
-  },
-
-  -- hlargs is a plugin to highlight arguments in function calls
-  {
-    "m-demare/hlargs.nvim",
-    event = "BufWinEnter",
-    config = function()
-      require("hlargs").setup()
     end,
   },
 
@@ -145,7 +125,7 @@ local plugins = {
           '██╔══╝   ██╔██╗ ██║   ██║██║   ██║   ██║   ██║██╔══██║',
           '███████╗██╔╝ ██╗╚██████╔╝╚██████╔╝   ██║   ██║██║  ██║',
           '╚══════╝╚═╝  ╚═╝ ╚═════╝  ╚═════╝    ╚═╝   ╚═╝╚═╝  ╚═╝',
-            '',
+            'bnvim',
          },
         },
         theme = "hyper",
@@ -153,42 +133,6 @@ local plugins = {
       -- stylua: ignore end
     end,
     dependencies = { { "nvim-tree/nvim-web-devicons" } },
-  },
-  -- copilot is a plugin to use github copilot
-  -- {
-  --   "github/copilot.vim",
-  --   event = "BufWinEnter",
-  --   cmd = "Copilot",
-  -- },
-
-  -- treesitter-just is a plugin to add justfile support to treesitter
-  { "IndianBoy42/tree-sitter-just", event = "BufWinEnter", ft = "just" },
-
-  {
-    "nathom/filetype.nvim",
-    lazy = false,
-    opts = {
-      overrides = {
-        literal = {
-          justfile = "just",
-        },
-      },
-    },
-  },
-
-  {
-    "charludo/projectmgr.nvim",
-    lazy = false, -- important!
-    config = function()
-      require("projectmgr").setup {
-        autogit = {
-          enabled = true,
-          command = "git pull --ff-only > .git/fastforward.log 2>&1",
-        },
-        session = { enabled = true, file = "Session.vim" },
-        shada = { enabled = false, file = "main.shada" },
-      }
-    end,
   },
 
   -- nvim-notify
@@ -294,6 +238,7 @@ local plugins = {
     end,
   },
 
+  -- flash nvim for searching
   {
     "folke/flash.nvim",
     event = "VeryLazy",
@@ -341,114 +286,6 @@ local plugins = {
           require("flash").toggle()
         end,
         desc = "Toggle Flash Search",
-      },
-    },
-  },
-
-  -- nvcommunity
-  {
-    "NvChad/nvcommunity",
-    { import = "nvcommunity.editor.rainbowdelimiters" },
-    { import = "nvcommunity.editor.illuminate" },
-    { import = "nvcommunity.folds.ufo" },
-    { import = "nvcommunity.editor.biscuits" },
-    { import = "nvcommunity.editor.symbols-outline" },
-    -- { import = "nvcommunity.editor.telescope-undo" },
-    { import = "nvcommunity.lsp.prettyhover" },
-    { import = "nvcommunity.lsp.lsplines" },
-  },
-
-  -- terminal color matching the same as theme.
-  -- {
-  --   "typicode/bg.nvim",
-  --   lazy = false,
-  -- },
-
-  -- for moving line up and down
-  {
-    "echasnovski/mini.move",
-    version = false,
-    event = "BufWinEnter",
-    config = function()
-      require("mini.move").setup {
-        -- add any configuration options here
-      }
-    end,
-  },
-
-  -- for aligning text
-  {
-    "echasnovski/mini.align",
-    version = false,
-    event = "BufWinEnter",
-    config = function()
-      require("mini.align").setup {}
-    end,
-  },
-
-  -- for debugging
-  {
-    "folke/trouble.nvim",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    opts = {
-      -- your configuration comes here
-      -- or leave it empty to use the default settings
-      -- refer to the configuration section below
-    },
-    event = "VeryLazy",
-  },
-
-  {
-    "zbirenbaum/copilot.lua",
-    cmd = "Copilot",
-    event = "InsertEnter",
-    config = function()
-      require("copilot").setup {
-        suggestion = {
-          enabled = true,
-          auto_trigger = true,
-          debounce = 75,
-          keymap = {
-            accept = "<C-a>",
-            accept_word = false,
-            accept_line = false,
-            next = "<M-]>",
-            prev = "<M-[>",
-            dismiss = "<C-]>",
-          },
-        },
-      }
-    end,
-  },
-
-  -- for undoing telescope selections
-  {
-    "debugloop/telescope-undo.nvim",
-  },
-
-  -- obsidian.md
-  {
-    "epwalsh/obsidian.nvim",
-    version = "*", -- recommended, use latest release instead of latest commit
-    lazy = true,
-    event = {
-      -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand'.
-      -- E.g. "BufReadPre " .. vim.fn.expand "~" .. "/my-vault/**.md"
-      "BufReadPre /home/bibek/myNotes/**.md",
-      "BufNewFile /home/bibek/myNotes/**.md",
-    },
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-    },
-    config = function()
-      require("obsidian").setup {}
-    end,
-    opts = {
-      workspaces = {
-        {
-          name = "personal",
-          path = "~/myNotes",
-        },
       },
     },
   },
@@ -513,8 +350,9 @@ local plugins = {
     end,
   },
 
-  -- elixir
+  -- elixir-ls
   {
+
     "elixir-tools/elixir-tools.nvim",
     version = "*",
     event = { "BufReadPre", "BufNewFile" },
@@ -531,7 +369,7 @@ local plugins = {
             dialyzerEnabled = false,
             enableTestLenses = false,
           },
-          on_attach = function(client, bufnr)
+          on_attach = function()
             vim.keymap.set("n", "<space>fp", ":ElixirFromPipe<cr>", { buffer = true, noremap = true })
             vim.keymap.set("n", "<space>tp", ":ElixirToPipe<cr>", { buffer = true, noremap = true })
             vim.keymap.set("v", "<space>em", ":ElixirExpandMacro<cr>", { buffer = true, noremap = true })
@@ -543,11 +381,7 @@ local plugins = {
       "nvim-lua/plenary.nvim",
     },
   },
-
-  -- arduino coding with nvim
-  -- {
-  --   "stevearc/vim-arduino",
-  -- },
 }
 
 return plugins
+
