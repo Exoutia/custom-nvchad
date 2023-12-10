@@ -56,6 +56,7 @@ local plugins = {
     { import = "nvcommunity.editor.rainbowdelimiters" },
     { import = "nvcommunity.editor.illuminate" },
     { import = "nvcommunity.folds.ufo" },
+    { import = "nvcommunity.folds.tailwindfold" },
     { import = "nvcommunity.editor.biscuits" },
     { import = "nvcommunity.editor.symbols-outline" },
     { import = "nvcommunity.lsp.prettyhover" },
