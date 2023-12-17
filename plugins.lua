@@ -57,6 +57,10 @@ local plugins = {
     { import = "nvcommunity.editor.illuminate" },
     { import = "nvcommunity.folds.ufo" },
     { import = "nvcommunity.folds.tailwindfold" },
+    {
+      "tailwind-fold.nvim",
+       ft = { 'html', 'svelte', 'astro', 'vue', 'typescriptreact', "htmldjango" },
+    },
     { import = "nvcommunity.editor.biscuits" },
     { import = "nvcommunity.editor.symbols-outline" },
     { import = "nvcommunity.lsp.prettyhover" },

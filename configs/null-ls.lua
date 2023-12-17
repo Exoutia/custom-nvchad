@@ -23,6 +23,7 @@ local sources = {
   -- python
   b.formatting.isort,
   b.formatting.black,
+  b.formatting.djlint,
 
   -- rust
   b.formatting.rustfmt,
@@ -33,7 +34,6 @@ local sources = {
   b.formatting.golines,
 
   -- elixir
-  
 
   -- vale
   -- b.diagnostics.vale,
