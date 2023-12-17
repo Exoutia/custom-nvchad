@@ -4,6 +4,15 @@ local capabilities = require("plugins.configs.lspconfig").capabilities
 local lspconfig = require "lspconfig"
 local util = require "lspconfig/util"
 
+local venv_path = os.getenv "VIRTUAL_ENV"
+local py_path = nil
+-- decide which python executable to use for mypy
+if venv_path ~= nil then
+  py_path = venv_path .. "/bin/python3"
+else
+  py_path = vim.g.python3_host_prog
+end
+
 -- if you just want default config for the servers then put them in a table
 local servers = {
   "html",
@@ -31,7 +40,7 @@ end
 lspconfig.html.setup {
   capabilities = capabilities,
   cmd = { "vscode-html-language-server", "--stdio" },
-  filetypes = { "html" },
+  filetypes = { "html", "htmldjango" },
   init_options = {
     configurationSection = { "html", "css", "javascript" },
     embeddedLanguages = {
@@ -76,7 +85,12 @@ lspconfig.pylsp.setup {
     pylsp = {
       plugins = {
         conifgurationSources = { "flake8" },
-        pylsp_mypy = { enabled = true },
+        pylsp_mypy = {
+          enabled = true,
+          overrides = { "--python-executable", py_path, true },
+          report_progress = true,
+          live_mode = false,
+        },
         flake8 = { enabled = true, maxLineLength = 120 },
         pyflakes = { enabled = false },
         pylint = { enabled = false },
@@ -84,6 +98,7 @@ lspconfig.pylsp.setup {
         pyls_isort = { enabled = true },
         jedi_completion = { fuzzy = true },
         rope_autoimport = { enabled = false },
+        pydocstyle = { enabled = false, maxLineLength = 120 },
       },
     },
   },
