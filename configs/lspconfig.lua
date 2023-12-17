@@ -37,6 +37,16 @@ for _, lsp in ipairs(servers) do
   }
 end
 
+lspconfig.clangd.setup {
+  on_attach = on_attach,
+
+  capabilities = capabilities,
+  cmd = {
+    "clangd",
+    "--offset-encoding=utf-16",
+  },
+}
+
 lspconfig.html.setup {
   capabilities = capabilities,
   cmd = { "vscode-html-language-server", "--stdio" },
