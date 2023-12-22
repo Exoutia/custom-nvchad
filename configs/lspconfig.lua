@@ -10,7 +10,7 @@ local py_path = nil
 if venv_path ~= nil then
   py_path = venv_path .. "/bin/python3"
 else
-  py_path = vim.g.python3_host_prog
+  py_path = '/usr/bin/python'
 end
 
 -- if you just want default config for the servers then put them in a table
@@ -94,7 +94,7 @@ lspconfig.pylsp.setup {
   settings = {
     pylsp = {
       plugins = {
-        conifgurationSources = { "flake8" },
+        conifgurationSources = { "flake8", "pycodestyle" },
         pylsp_mypy = {
           enabled = true,
           overrides = { "--python-executable", py_path, true },
@@ -109,6 +109,7 @@ lspconfig.pylsp.setup {
         jedi_completion = { fuzzy = true },
         rope_autoimport = { enabled = false },
         pydocstyle = { enabled = false, maxLineLength = 120 },
+        pycodefolding = { enabled = true },
       },
     },
   },
