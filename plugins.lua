@@ -387,6 +387,7 @@ local plugins = {
     },
   },
 
+  -- for leetcode solving
   {
     "kawre/leetcode.nvim",
     build = ":TSUpdate html",
@@ -406,6 +407,23 @@ local plugins = {
       lang = "python3"
     },
   },
+
+  {
+    "windwp/nvim-ts-autotag",
+    ft = {
+      "javascript",
+      "markdown",
+      "javascriptreact",
+      "htmldjango",
+      "typescriptreact",
+      "typescript",
+      "html",
+    },
+    config = function()
+      require("nvim-ts-autotag").setup()
+    end,
+  }
+
 }
 
 return plugins
