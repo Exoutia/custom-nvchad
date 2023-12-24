@@ -261,7 +261,7 @@ local plugins = {
         desc = "Flash",
       },
       {
-        "S",
+        "<M-s>",
         mode = { "n", "x", "o" },
         function()
           require("flash").treesitter()
