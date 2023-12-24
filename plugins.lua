@@ -26,6 +26,30 @@ local plugins = {
     opts = overrides.mason,
   },
 
+  -- overriding for tailwindcss-colorizer-cmp in comp built in
+  {
+    "hrsh7th/nvim-cmp",
+    dependencies = {
+      { "roobert/tailwindcss-colorizer-cmp.nvim", config = true },
+    },
+    opts = function(_, opts)
+      local format_kinds = opts.formatting.format
+      opts.formatting.format = function(entry, item)
+        format_kinds(entry, item)
+        return require("tailwindcss-colorizer-cmp").formatter(entry, item)
+      end
+    end,
+  },
+
+  {
+    "NvChad/nvim-colorizer.lua",
+    opts = {
+      user_default_options = {
+        tailwind = true,
+      },
+    },
+  },
+
   {
     "nvim-treesitter/nvim-treesitter",
     opts = overrides.treesitter,
@@ -404,7 +428,7 @@ local plugins = {
     },
     opts = {
       -- configuration goes here
-      lang = "python3"
+      lang = "python3",
     },
   },
 
@@ -422,8 +446,21 @@ local plugins = {
     config = function()
       require("nvim-ts-autotag").setup()
     end,
-  }
+  },
 
+  -- for tailwindcss color in cmp and file
+  {
+    "roobert/tailwindcss-colorizer-cmp.nvim",
+    -- optionally, override the default options:
+    ft = {
+      "!cmp_menu",
+    },
+    config = function()
+      require("tailwindcss-colorizer-cmp").setup {
+        color_square_width = 2,
+      }
+    end,
+  },
 }
 
 return plugins
