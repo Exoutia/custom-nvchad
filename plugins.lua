@@ -43,6 +43,7 @@ local plugins = {
 
   {
     "NvChad/nvim-colorizer.lua",
+    ft = { "!cmp_menu"},
     opts = {
       user_default_options = {
         tailwind = true,
@@ -452,9 +453,6 @@ local plugins = {
   {
     "roobert/tailwindcss-colorizer-cmp.nvim",
     -- optionally, override the default options:
-    ft = {
-      "!cmp_menu",
-    },
     config = function()
       require("tailwindcss-colorizer-cmp").setup {
         color_square_width = 2,
