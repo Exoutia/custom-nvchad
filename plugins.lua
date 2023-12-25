@@ -437,7 +437,6 @@ local plugins = {
     "windwp/nvim-ts-autotag",
     ft = {
       "javascript",
-      "markdown",
       "javascriptreact",
       "htmldjango",
       "typescriptreact",
