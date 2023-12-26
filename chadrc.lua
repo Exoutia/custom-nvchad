@@ -26,7 +26,7 @@ M.ui = {
   telescope = { style = "borderless" }, -- borderless / bordered
 
 
-  transparency = false,
+  transparency = true,
   ------------------------------- nvchad_ui modules -----------------------------
   statusline = {
     theme = "default", -- default/vscode/vscode_colored/minimal
