@@ -27,3 +27,6 @@ for i = 1, 9, 1 do
     vim.api.nvim_set_current_buf(vim.t.bufs[i])
   end)
 end
+
+-- vscode format i.e json files
+vim.g.vscode_snippets_path = "~/.config/nvim/lua/custom/snippets"

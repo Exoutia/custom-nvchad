@@ -1,0 +1,8 @@
+{
+  "break": {
+    "prefix": "break",
+    "body": ["<br />"],
+    "description": "HTML break tag"
+  }
+}
+
