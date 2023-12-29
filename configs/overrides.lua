@@ -60,6 +60,7 @@ M.mason = {
     "emmet-ls",
     "eslint-lsp",
     "deno",
+    "eslint_d",
 
     -- c/cpp stuff
     "clangd",
