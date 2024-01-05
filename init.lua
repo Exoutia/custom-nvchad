@@ -21,6 +21,7 @@ end
 vim.opt.foldtext = "v:lua.vim.treesitter.foldtext()"
 vim.g.dashboard_default_executive = "telescope"
 vim.o.mouse = "nv"
+vim.o.conceallevel = 2
 
 for i = 1, 9, 1 do
   vim.keymap.set("n", string.format("<A-%s>", i), function()
