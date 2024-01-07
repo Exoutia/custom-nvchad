@@ -3,6 +3,13 @@
     "prefix": "break",
     "body": ["<br />"],
     "description": "HTML break tag"
-  }
+  },
+
+  "mark tag":
+  {
+    "prefix": [ "mark", "<mark>" ],
+    "body": ["<mark>$1</mark>"],
+    "description": "HTML mark tag"
+  },
 }
 
