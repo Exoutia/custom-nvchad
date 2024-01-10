@@ -30,6 +30,9 @@ M.general = {
       end,
       "add break point",
     },
+
+    -- for zenmode
+    ["<leader>zz"] = { "<cmd> ZenMode<CR>", "toggle zen mode" },
   },
 }
 
