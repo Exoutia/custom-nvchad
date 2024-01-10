@@ -107,7 +107,6 @@ lspconfig.pylsp.setup {
         yapf = { enabled = false },
         pyls_isort = { enabled = true },
         jedi_completion = { fuzzy = true },
-        rope_autoimport = { enabled = false },
         pydocstyle = { enabled = false, maxLineLength = 120 },
         pycodefolding = { enabled = true },
       },
