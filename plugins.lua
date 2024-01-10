@@ -465,7 +465,7 @@ local plugins = {
     "epwalsh/obsidian.nvim",
     version = "*", -- recommended, use latest release instead of latest commit
     lazy = true,
-    ft = "markdown",
+    -- ft = "markdown",
     -- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
     event = {
       -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand'.
@@ -546,7 +546,7 @@ local plugins = {
             return require("obsidian").util.toggle_checkbox()
           end,
           opts = { buffer = true },
-          desc = "This is to checkmark the checkbox in md in obsidian vault"
+          desc = "This is to checkmark the checkbox in md in obsidian vault",
         },
       },
 
@@ -586,6 +586,22 @@ local plugins = {
 
       yaml_parser = "native",
     },
+  },
+  -- Lua
+  {
+    "folke/zen-mode.nvim",
+    opts = {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+      plugins = {
+        kitty = {
+          enabled = true,
+          font = "+2", -- font size increment
+        },
+      },
+    },
+    event = "BufRead",
   },
 }
 
