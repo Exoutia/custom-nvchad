@@ -587,7 +587,8 @@ local plugins = {
       yaml_parser = "native",
     },
   },
-  -- Lua
+
+  -- zenmode
   {
     "folke/zen-mode.nvim",
     opts = {
@@ -596,12 +597,28 @@ local plugins = {
       -- refer to the configuration section below
       plugins = {
         kitty = {
-          enabled = true,
+          enabled = false,
           font = "+2", -- font size increment
         },
       },
+      on_open = function(win)
+        vim.api.nvim_win_set_option(win, "cursorline", true)
+      end,
+      on_close = function()
+        vim.api.nvim_win_set_option(0, "cursorline", false)
+      end,
     },
     event = "BufRead",
+  },
+
+  -- twilight 
+  {
+    "folke/twilight.nvim",
+    opts = {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+    },
   },
 }
 
