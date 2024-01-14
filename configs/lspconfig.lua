@@ -10,7 +10,7 @@ local py_path = nil
 if venv_path ~= nil then
   py_path = venv_path .. "/bin/python3"
 else
-  py_path = '/usr/bin/python'
+  py_path = "/usr/bin/python"
 end
 
 -- if you just want default config for the servers then put them in a table
@@ -32,7 +32,7 @@ local servers = {
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
-   on_attach = on_attach,
+    on_attach = on_attach,
     capabilities = capabilities,
   }
 end
@@ -94,7 +94,7 @@ lspconfig.pylsp.setup {
   settings = {
     pylsp = {
       plugins = {
-        conifgurationSources = { "flake8", "pycodestyle" },
+        conifgurationSources = { "flake8" },
         pylsp_mypy = {
           enabled = true,
           overrides = { "--python-executable", py_path, true },
@@ -109,6 +109,7 @@ lspconfig.pylsp.setup {
         jedi_completion = { fuzzy = true },
         pydocstyle = { enabled = false, maxLineLength = 120 },
         pycodefolding = { enabled = true },
+        pycodestyle = { enabled = false },
       },
     },
   },

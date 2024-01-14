@@ -611,7 +611,7 @@ local plugins = {
     event = "BufRead",
   },
 
-  -- twilight 
+  -- twilight
   {
     "folke/twilight.nvim",
     opts = {
