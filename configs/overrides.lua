@@ -72,6 +72,7 @@ M.mason = {
 
     -- python stuff
     "python-lsp-server",
+    "pyright",
     "black",
     "isort",
     "debugpy",

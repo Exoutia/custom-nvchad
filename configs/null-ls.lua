@@ -24,6 +24,8 @@ local sources = {
   b.formatting.isort,
   b.formatting.black,
   b.formatting.djlint,
+  b.diagnostics.ruff,
+  b.diagnostics.mypy,
 
   -- rust
   b.formatting.rustfmt,

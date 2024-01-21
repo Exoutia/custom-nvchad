@@ -18,7 +18,7 @@ local servers = {
   "html",
   "cssls",
   "clangd",
-  "pylsp",
+  "pyright",
   "rust_analyzer",
   "tailwindcss",
   "emmet_ls",
@@ -88,32 +88,51 @@ lspconfig.gopls.setup {
   },
 }
 
-lspconfig.pylsp.setup {
+lspconfig.pyright.setup {
   on_attach = on_attach,
   capabilities = capabilities,
+  filetypes = { "python" },
   settings = {
-    pylsp = {
-      plugins = {
-        conifgurationSources = { "flake8" },
-        pylsp_mypy = {
-          enabled = true,
-          overrides = { "--python-executable", py_path, true },
-          report_progress = true,
-          live_mode = false,
-        },
-        flake8 = { enabled = true, maxLineLength = 120 },
-        pyflakes = { enabled = false },
-        pylint = { enabled = false },
-        yapf = { enabled = false },
-        pyls_isort = { enabled = true },
-        jedi_completion = { fuzzy = true },
-        pydocstyle = { enabled = false, maxLineLength = 120 },
-        pycodefolding = { enabled = true },
-        pycodestyle = { enabled = false },
+    python = {
+      analysis = {
+        autoSearchPaths = true,
+        useLibraryCodeForTypes = true,
+        diagnosticMode = "workspace",
+        typeCheckingMode = "basic",
+        autoImportCompletions = true,
       },
     },
   },
 }
+
+-- lspconfig.pylsp.setup {
+--   on_attach = on_attach,
+--   capabilities = capabilities,
+--   settings = {
+--     pylsp = {
+--       plugins = {
+--         conifgurationSources = { "ruff" },
+--         pylsp_mypy = {
+--           enabled = true,
+--           overrides = { "--python-executable", py_path, true },
+--           report_progress = true,
+--           live_mode = false,
+--         },
+--         flake8 = { enabled = false, maxLineLength = 120 },
+--         maccabe = { enabled = false },
+--         pyflakes = { enabled = false },
+--         pylint = { enabled = false },
+--         ruff = { enabled = true, lineLength = 120 },
+--         yapf = { enabled = false },
+--         pyls_isort = { enabled = true },
+--         jedi_completion = { fuzzy = true },
+--         pydocstyle = { enabled = false, maxLineLength = 120 },
+--         pycodefolding = { enabled = true },
+--         pycodestyle = { enabled = false },
+--       },
+--     },
+--   },
+-- }
 
 --
 -- lspconfig.pyright.setup { blabla}
