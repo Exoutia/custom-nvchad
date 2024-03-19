@@ -74,6 +74,7 @@ M.mason = {
     "python-lsp-server",
     "pyright",
     "black",
+    "ruff-lsp",
     "isort",
     "debugpy",
 

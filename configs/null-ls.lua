@@ -12,7 +12,6 @@ local sources = {
   -- b.formatting.deno_fmt, -- choosed deno for ts/js files cuz its very fast!
   b.formatting.prettier.with { filetypes = { "html", "markdown", "css" } }, -- so prettier works only on these filetypes
 
-  b.formatting.eslint_d,
 
   -- Lua
   b.formatting.stylua,
@@ -24,11 +23,8 @@ local sources = {
   b.formatting.isort,
   b.formatting.black,
   b.formatting.djlint,
-  b.diagnostics.ruff,
   b.diagnostics.mypy,
 
-  -- rust
-  b.formatting.rustfmt,
 
   -- go
   b.formatting.gofumpt,

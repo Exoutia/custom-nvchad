@@ -6,7 +6,7 @@
 --   command = "tabdo wincmd =",
 -- })
 if vim.g.neovide then
-  vim.o.guifont = "CaskaydiaCove Nerd Font:h11"
+  vim.o.guifont = "CaskaydiaCove Nerd Font:h14"
   vim.g.neovide_scale_factor = 1.0
   vim.g.neovide_padding_top = 10
   vim.g.neovide_padding_bottom = 0
@@ -14,7 +14,7 @@ if vim.g.neovide then
   vim.g.neovide_padding_left = 0
   vim.g.neovide_hide_mouse_when_typing = true
   vim.o.mouse = "nv"
-  vim.g.neovide_transparency = 0.9
+  vim.g.neovide_transparency = 0.5
 end
 -- vim.cmd [[imap <silent><script><expr> <C-a> copilot#Accept('\<CR>')]]
 -- vim.g.copilot_no_tab_map = true

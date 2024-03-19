@@ -5,8 +5,8 @@ local M = {}
 local highlights = require "custom.highlights"
 
 M.ui = {
-  theme = "sweetpastel",
-  theme_toggle = { "sweetpastel", "sweetpastel" },
+  theme = "oxocarbon",
+  theme_toggle = { "oxocarbon", "oxocarbon" },
 
   hl_override = highlights.override,
   hl_add = highlights.add,
