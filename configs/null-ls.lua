@@ -23,7 +23,6 @@ local sources = {
   b.formatting.isort,
   b.formatting.black,
   b.formatting.djlint,
-  b.diagnostics.mypy,
 
 
   -- go
@@ -36,6 +35,8 @@ local sources = {
   -- vale
   -- b.diagnostics.vale,
 }
+
+
 
 null_ls.setup {
   debug = true,

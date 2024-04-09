@@ -568,7 +568,7 @@ local plugins = {
       },
 
       attachments = {
-        img_folder = "assets/imgs", -- This is the default
+        img_folder = "resources/assets/imgs", -- This is the default
         img_text_func = function(client, path)
           local link_path
           local vault_relative_path = client:vault_relative_path(path)
