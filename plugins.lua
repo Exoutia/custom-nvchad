@@ -91,19 +91,19 @@ local plugins = {
     { import = "nvcommunity.lsp.prettyhover" },
     { import = "nvcommunity.lsp.lsplines" },
     { import = "nvcommunity.completion.copilot" },
-    {
-      "copilot.lua",
-      opts = {
-        suggestion = {
-          keymap = {
-            accept = "<C-a>",
-            next = "<M-]>",
-            prev = "<M-[>",
-            dismiss = "<C-]>",
-          },
-        },
-      },
-    },
+    -- {
+    --   "copilot.lua",
+    --   opts = {
+    --     suggestion = {
+    --       keymap = {
+    --         accept = "<C-a>",
+    --         next = "<M-]>",
+    --         prev = "<M-[>",
+    --         dismiss = "<C-]>",
+    --       },
+    --     },
+    --   },
+    -- },
     { import = "nvcommunity.git.neogit" },
     { import = "nvcommunity.editor.hlargs" },
     { import = "nvcommunity.diagnostics.trouble" },
