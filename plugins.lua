@@ -90,41 +90,11 @@ local plugins = {
     { import = "nvcommunity.editor.symbols-outline" },
     { import = "nvcommunity.lsp.prettyhover" },
     { import = "nvcommunity.lsp.lsplines" },
-    { import = "nvcommunity.completion.copilot" },
-    -- {
-    --   "copilot.lua",
-    --   opts = {
-    --     suggestion = {
-    --       keymap = {
-    --         accept = "<C-a>",
-    --         next = "<M-]>",
-    --         prev = "<M-[>",
-    --         dismiss = "<C-]>",
-    --       },
-    --     },
-    --   },
-    -- },
     { import = "nvcommunity.git.neogit" },
     { import = "nvcommunity.editor.hlargs" },
     { import = "nvcommunity.diagnostics.trouble" },
     { import = "nvcommunity.lsp.dim" },
     { import = "nvcommunity.motion.harpoon" },
-  },
-
-  -- project manager
-  {
-    "charludo/projectmgr.nvim",
-    lazy = false, -- important!
-    config = function()
-      require("projectmgr").setup {
-        autogit = {
-          enabled = true,
-          command = "git pull --ff-only > .git/fastforward.log 2>&1",
-        },
-        session = { enabled = true, file = "Session.vim" },
-        shada = { enabled = false, file = "main.shada" },
-      }
-    end,
   },
 
   -- nvim surrownd
@@ -415,27 +385,6 @@ local plugins = {
     },
   },
 
-  -- for leetcode solving
-  {
-    "kawre/leetcode.nvim",
-    build = ":TSUpdate html",
-    lazy = false,
-    dependencies = {
-      "nvim-telescope/telescope.nvim",
-      "nvim-lua/plenary.nvim", -- required by telescope
-      "MunifTanjim/nui.nvim",
-
-      -- optional
-      "nvim-treesitter/nvim-treesitter",
-      "rcarriga/nvim-notify",
-      "nvim-tree/nvim-web-devicons",
-    },
-    opts = {
-      -- configuration goes here
-      lang = "python3",
-    },
-  },
-
   {
     "windwp/nvim-ts-autotag",
     ft = {
@@ -590,38 +539,6 @@ local plugins = {
     },
   },
 
-  -- zenmode
-  {
-    "folke/zen-mode.nvim",
-    opts = {
-      -- your configuration comes here
-      -- or leave it empty to use the default settings
-      -- refer to the configuration section below
-      plugins = {
-        kitty = {
-          enabled = false,
-          font = "+2", -- font size increment
-        },
-      },
-      on_open = function(win)
-        vim.api.nvim_win_set_option(win, "cursorline", true)
-      end,
-      on_close = function()
-        vim.api.nvim_win_set_option(0, "cursorline", false)
-      end,
-    },
-    event = "BufRead",
-  },
-
-  -- twilight
-  {
-    "folke/twilight.nvim",
-    opts = {
-      -- your configuration comes here
-      -- or leave it empty to use the default settings
-      -- refer to the configuration section below
-    },
-  },
 }
 
 return plugins
