@@ -126,8 +126,12 @@ local plugins = {
             '██╔══╝   ██╔██╗ ██║   ██║██║   ██║   ██║   ██║██╔══██║',
             '███████╗██╔╝ ██╗╚██████╔╝╚██████╔╝   ██║   ██║██║  ██║',
             '╚══════╝╚═╝  ╚═╝ ╚═════╝  ╚═════╝    ╚═╝   ╚═╝╚═╝  ╚═╝',
-            'knvim',
+            ''
           },
+          footer = {
+            "",
+            "Just be yourself"
+          }
         },
         theme = "hyper",
       }
@@ -358,7 +362,8 @@ local plugins = {
 
     "elixir-tools/elixir-tools.nvim",
     version = "*",
-    event = { "BufReadPre", "BufNewFile" },
+    event = { "BufReadPost *.exs", "BufNewFile *.exs" },
+    ft = "exs",
     config = function()
       local elixir = require "elixir"
       local elixirls = require "elixir.elixirls"
@@ -538,7 +543,6 @@ local plugins = {
       yaml_parser = "native",
     },
   },
-
 }
 
 return plugins
