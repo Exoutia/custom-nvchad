@@ -543,6 +543,16 @@ local plugins = {
       yaml_parser = "native",
     },
   },
+
+  -- mini plugins
+  {
+    "echasnovski/mini.nvim",
+    version = false,
+    config = function()
+      require("mini.align").setup()
+    end,
+    event = "VeryLazy",
+  },
 }
 
 return plugins
